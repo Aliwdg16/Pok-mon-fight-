@@ -23,7 +23,7 @@ app.get("/pokemon/:id", async (req, res) => {
     const id = req.params.id;
   
     let foundPokemon = [];
-    pokedex.map((pokemon) => {
+    pokedata.map((pokemon) => {
       if (pokemon.id == id) {
         foundPokemon.push(pokemon);
       }
