@@ -1,7 +1,7 @@
 
 import { Route, Routes } from "react-router"
 import Mainpage from "./component/Mainpage"
-import Card from "./component/Card";
+
 
 
 function App() {
@@ -13,7 +13,6 @@ function App() {
        {/* <Routes>
         <Route path="/" element={<Mainpage />} />
       </Routes> */}
-      <Card />
     </>
   );
 
