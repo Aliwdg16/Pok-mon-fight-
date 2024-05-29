@@ -14,7 +14,7 @@ app.get("/pokemon", async (req, res) => {
     if (pokedata) {
       res.status(200).json(pokedata);
     } else {
-      res.status(404).send();
+      res.status(404).send('Sorry, cant find that');
     }
   });
 
