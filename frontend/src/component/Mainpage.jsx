@@ -7,14 +7,9 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Link } from "react-router-dom";
-
 import Card from "./Card";
 
 const Mainpage = () => {
-
-
-
-
   return (
 
 <div className="  relative "  >
@@ -58,24 +53,29 @@ const Mainpage = () => {
     </ul>
     </div>
 
-{/*main*/}
-    <section className=" flex flex-row justify-evenly flex-wrap"> 
-    <div className=" flex flex-col items-center mt-8" >  <Card /> 
-    <button><img src="./src/assets/pokeball.webp" className=" h-[20rem] w-[17rem] mt-9" /></button> </div>
-    
-    <div className=" mt-80"> <button><img src="./src/assets/Schwert.webp" className=" h-[20rem] w-[17rem] mt-9" /></button> </div>
-    
-    <div className="flex flex-col items-center mt-8"><Card /> 
-    
-    <button><img src="./src/assets/pokeball.webp" className=" h-[20rem] w-[17rem] mt-9" /></button> </div>
-    </section>
+      {/*main*/}
+      <section className=" flex flex-row justify-evenly flex-wrap">
+        <div className=" flex flex-col items-center mt-8">
+         
+          <Card />
+          <img
+            src="./src/assets/pokeball.webp"
+            className=" h-[20rem] w-[17rem] mt-9"
+          />
+        </div>
+        <div className=" mt-80"> <button><img src="./src/assets/Schwert.webp" className=" h-[20rem] w-[17rem] mt-9" /></button> </div>
 
+        <div className="flex flex-col items-center mt-8">
+      
+          <Card />
+          <img
+            src="./src/assets/pokeball.webp"
+            className=" h-[20rem] w-[17rem] mt-9"
+          />
+        </div>
+      </section>
     </div>
-  )
-}
- 
+  );
+};
 
-
-
-    
-export default Mainpage
+export default Mainpage;
