@@ -1,11 +1,24 @@
+import { Route, Routes } from "react-router"
+import Mainpage from "./component/Mainpage"
+
 function App() {
 
   return (
-    <>
-         <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
+
+    <div className="">
+       
+       <Mainpage />
+
+       {/* <Routes>
+        <Route path="/" element={<Mainpage />} />
+      </Routes> */}
+
+
+   
+
+
+   
+    </div>
   )
 }
 
