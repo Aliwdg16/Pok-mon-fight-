@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router";
-
-import Card from "./component/Card";
 import Mainpage from "./component/Mainpage";
 
 function App() {
@@ -10,8 +8,6 @@ function App() {
       {/* <Routes>
         <Route path="/" element={<Mainpage />} />
       </Routes> */}
-      <Card />
-      <Mainpage />
     </>
   );
 }

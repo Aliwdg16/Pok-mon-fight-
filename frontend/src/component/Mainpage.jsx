@@ -7,13 +7,9 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Link } from "react-router-dom";
-import useFetchData from "./FetchData";
-import getPokemonData from "../utils/utils.js";
-import Card from "./Card.jsx";
+import Card from "./Card";
 
 const Mainpage = () => {
-  const { entries, isLoading } = useFetchData();
-  getPokemonData(entries);
   return (
     <div>
       {/* navbar */}
@@ -65,25 +61,26 @@ const Mainpage = () => {
       </div>
 
       {/*main*/}
-      <section className=" flex flex-row justify-evenly ">
-        <div className=" flex flex-col items-center">
-          <Card key={1} {...getPokemonData} />
+      <section className=" flex flex-row justify-evenly flex-wrap">
+        <div className=" flex flex-col items-center mt-8">
+          <Card />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"
           />
         </div>
-
-        <div>
+        <div className=" mt-80">
           {" "}
-          <button>Fight</button>{" "}
+          <button>
+            <img
+              src="./src/assets/Schwert.webp"
+              className=" h-[20rem] w-[17rem] mt-9"
+            />
+          </button>{" "}
         </div>
 
-        <div className="flex flex-col items-center">
-          <img
-            src="./src/assets/image.png"
-            className=" h-[30rem] w-[20rem] mt-9"
-          />{" "}
+        <div className="flex flex-col items-center mt-8">
+          <Card />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"
