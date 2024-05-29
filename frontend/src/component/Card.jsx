@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Card = () => {
+const Card = ({ ...name }) => {
+  useEffect(() => {
+    console.log(name);
+  }, []);
   return (
     <>
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-violet-400 border-8 border-yellow-400">
         <div className="flex flex-row justify-between p-2 pb-0">
-          <p className="font-bold text-2xl p-4 indent-10">Mewtwo</p>
+          <p className="font-bold text-2xl p-4 indent-10">{name}</p>
           <div>
             <img
               alt="Psychic icon SwSh.png"
