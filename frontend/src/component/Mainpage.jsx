@@ -5,11 +5,38 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import useFetchData from "./FetchData";
+import fight from "../utils/utils.js";
 
 const Mainpage = () => {
+  const { entries, isLoading } = useFetchData();
+  console.log(entries);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  //Funktionen triggern einen shuffle counter mit dem ein useEffect
+  // in Card.jsx getriggert werden kann
+  //Evtl. für maximale Shuffle nutzbar
+  const shufflePokemon1 = () => {
+    setCount1(count1 + 1);
+  };
+
+  const shufflePokemon2 = () => {
+    setCount2(count2 + 1);
+  };
+
+  useEffect(() => {
+    console.log(
+      `Pokemon1 was shuffled ${count1} times and Pokemon2 was shuffled ${count2} times`
+    );
+  }, [count1, count2]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       {/* navbar */}
@@ -63,10 +90,11 @@ const Mainpage = () => {
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
         <div className=" flex flex-col items-center mt-8">
-          <Card />
+          <Card key={1} entries={entries} onGetPokemon={count1} />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"
+            onClick={shufflePokemon1}
           />
         </div>
         <div className=" mt-80">
@@ -80,10 +108,11 @@ const Mainpage = () => {
         </div>
 
         <div className="flex flex-col items-center mt-8">
-          <Card />
+          <Card key={1} entries={entries} onGetPokemon={count2} />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"
+            onClick={shufflePokemon2}
           />
         </div>
       </section>
