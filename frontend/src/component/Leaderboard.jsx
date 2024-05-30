@@ -40,7 +40,7 @@ const Leaderboard = () => {
        <div className="flex flex-col flex-wrap items-center"> 
        <p className=" border-b-2 border-b-red-600  border-opacity-100">Name</p> 
         
-        <ul className="w-96 bg-transparent  rounded-xl bg-[#204301] bg-opacity-75 ">
+        <ul className="w-96 rounded-xl bg-[#204301] bg-opacity-75 ">
           <li className="w-full cursor-default  flex flex-col items-center border-b-2 border-neutral-100 border-opacity-100 py-4 text-black dark:border-opacity-50">
              {entries[149].name.english}
           </li>
