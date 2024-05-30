@@ -9,13 +9,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import useFetchData from "./FetchData";
-import fight from "../utils/utils.js";
+import { getRandomID, fight } from "../utils/utils.js";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
-  console.log(entries);
+
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
+  const [fightCount, setFightCount] = useState(0);
+  const [pokeID1, setPokeID1] = useState(-1);
+  const [pokeID2, setPokeID2] = useState(-1);
+  const [winner, setWinner] = useState(-1);
 
   //Funktionen triggern einen shuffle counter mit dem ein useEffect
   // in Card.jsx getriggert werden kann
@@ -27,6 +31,41 @@ const Mainpage = () => {
   const shufflePokemon2 = () => {
     setCount2(count2 + 1);
   };
+
+  function startFight() {
+    setFightCount(fightCount + 1);
+    if (pokeID1 > -1 && pokeID2 > -1) {
+      const stats1 = [
+        entries[pokeID1].base.Attack,
+        entries[pokeID1].base.Defense,
+        entries[pokeID1].base["Sp. Attack"],
+        entries[pokeID1].base["Sp. Defense"],
+      ];
+      const stats2 = [
+        entries[pokeID2].base.Attack,
+        entries[pokeID2].base.Defense,
+        entries[pokeID2].base["Sp. Attack"],
+        entries[pokeID2].base["Sp. Defense"],
+      ];
+      setWinner(fight(stats1, pokeID1, stats2, pokeID2));
+    }
+  }
+  useEffect(() => {
+    if (winner > -1) {
+      console.log(`The Winner is ${entries[winner].name.english}`);
+      setWinner(-1);
+    }
+  }, [winner]);
+
+  function getPokeID1(pokeID) {
+    console.log(`Id Pokemon 1 is ${pokeID}`);
+    setPokeID1(pokeID);
+  }
+
+  function getPokeID2(pokeID) {
+    console.log(`Id Pokemon 2 is ${pokeID}`);
+    setPokeID2(pokeID);
+  }
 
   useEffect(() => {
     console.log(
@@ -90,7 +129,12 @@ const Mainpage = () => {
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
         <div className=" flex flex-col items-center mt-8">
-          <Card key={1} entries={entries} onGetPokemon={count1} />
+          <Card
+            key={1}
+            entries={entries}
+            onGetPokemon={count1}
+            onGetID={getPokeID1}
+          />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"
@@ -99,7 +143,7 @@ const Mainpage = () => {
         </div>
         <div className=" mt-80">
           {" "}
-          <button>
+          <button onClick={startFight}>
             <img
               src="./src/assets/Schwert.webp"
               className=" h-[20rem] w-[17rem] mt-9"
@@ -108,7 +152,12 @@ const Mainpage = () => {
         </div>
 
         <div className="flex flex-col items-center mt-8">
-          <Card key={1} entries={entries} onGetPokemon={count2} />
+          <Card
+            key={1}
+            entries={entries}
+            onGetPokemon={count2}
+            onGetID={getPokeID2}
+          />
           <img
             src="./src/assets/pokeball.webp"
             className=" h-[20rem] w-[17rem] mt-9"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import getRandomID from "../utils/utils.js";
-const Card = ({ entries, onGetPokemon }) => {
+import { getRandomID, fight } from "../utils/utils.js";
+
+const Card = ({ entries, onGetPokemon, onGetID }) => {
   const [pokeID, setPokeID] = useState();
 
   useEffect(() => {
@@ -13,6 +14,7 @@ const Card = ({ entries, onGetPokemon }) => {
 
   useEffect(() => {
     console.log(pokeID);
+    onGetID(pokeID);
   }, [pokeID]);
 
   return (

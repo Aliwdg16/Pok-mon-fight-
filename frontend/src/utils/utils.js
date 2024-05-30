@@ -1,9 +1,19 @@
-export default function getRandomID(dataSize) {
+// utils.js
+
+export const getRandomID = (dataSize) => {
   return Math.floor(Math.random() * dataSize);
-}
+};
 
 //input attack, defense, sap, sdp => stats1 stats2
-function fight(stats1, ID1, stats2, ID2) {
+export const fight = (stats1, ID1, stats2, ID2) => {
+  if (!Array.isArray(stats1)) {
+    throw new Error("stats1 must be an array");
+  }
+
+  if (!Array.isArray(stats2)) {
+    throw new Error("stats2 must be an array");
+  }
+
   const sum1 = stats1.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
@@ -19,16 +29,4 @@ function fight(stats1, ID1, stats2, ID2) {
   } else {
     return -1;
   }
-}
-
-// export default function getPokemonData(dataset) {
-//   console.log(dataset);
-//   const id = getRandomID(dataset.length);
-//   const foundData = dataset.filter((data) => data.id == id);
-//   if (foundData.length > 0) {
-//     console.log(foundData);
-//     return foundData;
-//   } else {
-//     console.log("No Data found");
-//   }
-// }
+};
