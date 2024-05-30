@@ -12,6 +12,8 @@ import useFetchData from "./FetchData";
 import { getRandomID, fight } from "../utils/utils.js";
 import Modal from "./Modal";
 import ModalWin from "./ModalWin.jsx";
+import AudioPlayer from "./AudioPlay.jsx";
+import AudioPlayer1 from "./AudioPlayer1.jsx";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
@@ -57,6 +59,14 @@ const Mainpage = () => {
       setWinner(fight(stats1, pokeID1, stats2, pokeID2));
     }
   }
+
+  useEffect(() => {
+    if (winner !== -1) {
+      fightShuffle();
+      setWinner(-1); // reset the winner state
+    }
+  }, [winner]);
+
   useEffect(() => {
     if (winner > -1) {
       console.log(`The Winner is ${entries[winner].name.english}`);
@@ -83,6 +93,21 @@ const Mainpage = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  // shuffle nach fight
+
+  const fightShuffle = () => {
+    if (winner > -1) {
+      if (winner !== pokeID1) {
+        console.log("Player loses");
+        shufflePokemon1();
+      } else if (winner !== pokeID2) {
+        shufflePokemon2();
+        console.log("Player wins");
+      }
+    }
+  };
+
   return (
     <div>
       {/* navbar */}
@@ -163,11 +188,14 @@ const Mainpage = () => {
             />
           </button>
           {winner !== -1 &&
+            (winner === pokeID1 ? <AudioPlayer1 /> : <AudioPlayer />)}
+          {/* WORK IN PROGRESS ON WIN/LOSS MODAL */}
+          {/* {winner !== -1 &&
             (winner === pokeID1 ? (
               <ModalWin showModal={showModal} toggleModal={toggleModal} />
             ) : (
               <Modal showModal={showModal} toggleModal={toggleModal} />
-            ))}
+            ))} */}
 
           {/* <Modal showModal={showModal} toggleModal={toggleModal} />
           <ModalWin showModal={showModal} toggleModal={toggleModal} /> */}
