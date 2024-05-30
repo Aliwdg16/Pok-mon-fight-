@@ -11,23 +11,14 @@ import Card from "./Card";
 import useFetchData from "./FetchData";
 import { getRandomID, fight } from "../utils/utils.js";
 import Modal from "./Modal";
-import AudioPlayer from "./AudioPlay.jsx";
 import ModalWin from "./ModalWin.jsx";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
 
   const [showModal, setShowModal] = useState(false);
-  const [isToggling, setIsToggling] = useState(false);
-
   const toggleModal = () => {
-    if (!isToggling) {
-      setIsToggling(true);
-      setShowModal(!showModal);
-      setTimeout(() => {
-        setIsToggling(false);
-      }, 300);
-    }
+    setShowModal(!showModal);
   };
 
   const [count1, setCount1] = useState(0);
