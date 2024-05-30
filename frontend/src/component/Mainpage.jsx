@@ -11,9 +11,24 @@ import Card from "./Card";
 import useFetchData from "./FetchData";
 import { getRandomID, fight } from "../utils/utils.js";
 import Modal from "./Modal";
+import AudioPlayer from "./AudioPlay.jsx";
+import ModalWin from "./ModalWin.jsx";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
+
+  const [showModal, setShowModal] = useState(false);
+  const [isToggling, setIsToggling] = useState(false);
+
+  const toggleModal = () => {
+    if (!isToggling) {
+      setIsToggling(true);
+      setShowModal(!showModal);
+      setTimeout(() => {
+        setIsToggling(false);
+      }, 300);
+    }
+  };
 
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
@@ -139,21 +154,33 @@ const Mainpage = () => {
           />
           <img
             src="./src/assets/pokeball.webp"
-            className=" h-[20rem] w-[17rem] mt-9"
+            className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             onClick={shufflePokemon1}
           />
         </div>
-        <div className=" mt-60">
-          <button onClick={startFight}>
+
+        <div className="mt-60">
+          <button
+            onClick={() => {
+              startFight();
+              toggleModal();
+            }}
+          >
             <img
               src="./src/assets/Schwert.webp"
               className=" h-[20rem] w-[17rem] mt-9"
             />
           </button>
+          {winner !== -1 &&
+            (winner === pokeID1 ? (
+              <ModalWin showModal={showModal} toggleModal={toggleModal} />
+            ) : (
+              <Modal showModal={showModal} toggleModal={toggleModal} />
+            ))}
+
+          {/* <Modal showModal={showModal} toggleModal={toggleModal} />
+          <ModalWin showModal={showModal} toggleModal={toggleModal} /> */}
         </div>
-        {/* <div className=" mt-60">
-          <Modal />
-        </div> */}
 
         <div className="flex flex-col items-center mt-8">
           <Card
@@ -164,7 +191,7 @@ const Mainpage = () => {
           />
           <img
             src="./src/assets/pokeball.webp"
-            className=" h-[20rem] w-[17rem] mt-9"
+            className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             onClick={shufflePokemon2}
           />
         </div>
