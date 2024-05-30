@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import useFetchData from "./FetchData";
 import { getRandomID, fight } from "../utils/utils.js";
+import Modal from "./Modal";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
@@ -150,6 +151,9 @@ const Mainpage = () => {
             />
           </button>
         </div>
+        {/* <div className=" mt-60">
+          <Modal />
+        </div> */}
 
         <div className="flex flex-col items-center mt-8">
           <Card

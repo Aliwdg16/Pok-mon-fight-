@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-export default function Modal() {
+export default function Modal(startFight) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -13,6 +13,8 @@ export default function Modal() {
   } else {
     document.body.classList.remove("active-modal");
   }
+
+  const handleClock = (toggleModal, startFight);
 
   return (
     <>
