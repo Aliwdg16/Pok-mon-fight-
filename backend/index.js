@@ -1,13 +1,16 @@
 import express from 'express'
+import './db/server.js'
 import cors from 'cors'
 import { pokedata } from './data/pokedata.js';
+// import pokeRouter from './routers/pokeRouter.js';
+
 
 const app =express();
 const PORT=8000;
 
 app.use(cors());
 app.use(express.json());
-
+// app.use('/pokemon', pokeRouter);
 
 
 app.get("/pokemon", async (req, res) => {
