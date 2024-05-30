@@ -79,23 +79,32 @@ const Mainpage = () => {
   return (
     <div>
       {/* navbar */}
-      <div className=" flex flex-row items-center justify-center mt-20 h-full">
-        <ul className="my-2 flex flex-row gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 bg-[#d7423b] px-20 ">
+      <div className=" flex  items-center justify-center flex-wrap mt-20  min-w-[50%]">
+        <ul className="my-2 flex flex-row flex-wrap  bg-[#d7423b] px-[20%] rounded-xl ">
           <Link to={`/`}>
-            {" "}
+            
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
               className="p-1 font-medium text-2xl"
             >
-              <a
-                href="#"
-                className="flex items-center mr-6 hover:text-blue-500 transition-colors"
-              >
+              <a href="#" className="flex items-center mr-6 hover:text-[#b5bcc7] transition-colors">
                 Home
               </a>
             </Typography>
+          </Link>
+          <Link to={"/leaderboard"}>
+          <Typography
+            as="li"
+            variant="small"
+            color="blue-gray"
+            className="p-1 font-medium text-2xl"
+          >
+             <a href="#" className="flex items-center mr-6 hover:text-[#b5bcc7] transition-colors">
+              Leaderboard
+            </a>
+          </Typography>
           </Link>
           <Typography
             as="li"
@@ -103,23 +112,7 @@ const Mainpage = () => {
             color="blue-gray"
             className="p-1 font-medium text-2xl"
           >
-            <a
-              href="#"
-              className="flex items-center mr-6 hover:text-blue-500 transition-colors"
-            >
-              Leaderboard
-            </a>
-          </Typography>
-          <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 font-medium text-2xl"
-          >
-            <a
-              href="#"
-              className="flex items-center hover:text-blue-500 transition-colors"
-            >
+             <a href="#" className="flex items-center hover:text-[#b5bcc7]  transition-colors">
               instruction
             </a>
           </Typography>
@@ -129,6 +122,9 @@ const Mainpage = () => {
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
         <div className=" flex flex-col items-center mt-8">
+         
+          
+          
           <Card
             key={1}
             entries={entries}
@@ -140,15 +136,16 @@ const Mainpage = () => {
             className=" h-[20rem] w-[17rem] mt-9"
             onClick={shufflePokemon1}
           />
+         
         </div>
-        <div className=" mt-80">
-          {" "}
+        <div className=" mt-60">
+          
           <button onClick={startFight}>
             <img
               src="./src/assets/Schwert.webp"
               className=" h-[20rem] w-[17rem] mt-9"
             />
-          </button>{" "}
+          </button>
         </div>
 
         <div className="flex flex-col items-center mt-8">
