@@ -65,25 +65,34 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
   function getBackgroundColor() {
     let backgroundColorClass = "";
     if (entries[pokeID]) {
-      if (entries[pokeID].type.length === 1) {
-        backgroundColorClass =
-          entries[pokeID].type[0] in typeColorsBackground
-            ? `${typeColorsBackground[entries[pokeID].type[0]]}`
-            : "bg-black"; // fallback color if type is not found, makes the error very visible
-      } else if (entries[pokeID].type.length === 2) {
-        const color1 =
-          entries[pokeID].type[0] in typeColors
-            ? `from-${typeColors[entries[pokeID].type[0]]}`
-            : "from-black"; // fallback color if type is not found, makes the error very visible
-        const color2 =
-          entries[pokeID].type[1] in typeColors
-            ? `to-${typeColors[entries[pokeID].type[1]]}`
-            : "to-black"; // fallback color if type is not found, makes the error very visible
-        backgroundColorClass = `bg-gradient-to-r ${color1} ${color2}`;
-      }
+      backgroundColorClass =
+        entries[pokeID].type[0] in typeColorsBackground
+          ? `${typeColorsBackground[entries[pokeID].type[0]]}`
+          : "bg-black"; // fallback color if type is not found, makes the error very visible
     } else {
       backgroundColorClass = "bg-red-500";
     }
+
+    // if (entries[pokeID]) {
+    //   if (entries[pokeID].type.length === 1) {
+    //     backgroundColorClass =
+    //       entries[pokeID].type[0] in typeColorsBackground
+    //         ? `${typeColorsBackground[entries[pokeID].type[0]]}`
+    //         : "bg-black"; // fallback color if type is not found, makes the error very visible
+    //   } else if (entries[pokeID].type.length === 2) {
+    //     const color1 =
+    //       entries[pokeID].type[0] in typeColors
+    //         ? `from-${typeColors[entries[pokeID].type[0]]}`
+    //         : "from-black"; // fallback color if type is not found, makes the error very visible
+    //     const color2 =
+    //       entries[pokeID].type[1] in typeColors
+    //         ? `to-${typeColors[entries[pokeID].type[1]]}`
+    //         : "to-black"; // fallback color if type is not found, makes the error very visible
+    //     backgroundColorClass = `bg-gradient-to-r ${color1} ${color2}`;
+    //   }
+    // } else {
+    //   backgroundColorClass = "bg-red-500";
+    // }
     console.log(backgroundColorClass);
     return backgroundColorClass;
   }
