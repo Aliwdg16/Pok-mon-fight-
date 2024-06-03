@@ -128,22 +128,22 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
       <div
         className={
           pokeID &&
-          `max-w-sm rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300`
+          `max-w-sm rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-[#ddcb45] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300`
         }
       >
         {/* <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-violet-300 border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"> */}
         <div className="flex flex-row justify-between p-2 pb-0">
-          <p className="font-bold text-2xl p-4 indent-10 text-pretty">
+          <p className="font-bold text-3xl p-4 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
             {pokeID && entries[pokeID].name.english}
           </p>
           <div className="flex flex-row items-center">
-            <p className="text-red-500 font-bold text-xl p-2 content-center">
+            <p className="text-white font-bold text-xl p-2 content-center">
               {entries[pokeID].base.HP}HP
             </p>
             {typeIcons}
           </div>
         </div>
-        <div className="m-2 border-1  bg-white border-8 border-black rounded">
+        <div className="m-2 border-1  bg-white border-8 border-[#ddcb45] rounded">
           <img
             src={
               pokeID &&
@@ -152,20 +152,18 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
             alt={pokeID && entries[pokeID].name.english}
           />
         </div>
-        <div className="px-6 py-4 pt-4 pb-4 m-3 bg-gray-200 rounded-lg flex flex-row justify-between">
+        <div className="px-6 py-4 pt-4 pb-4 m-3 bg-gray-200 rounded-lg flex flex-row justify-between text-gray-700 p-1 text-xl font-bold">
           <div>
-            <p className="text-gray-700 text-base p-1">
-              Attack: {pokeID && entries[pokeID].base.Attack}
-            </p>
-            <p className="text-gray-700 text-base p-1">
+            <p className="">Attack: {pokeID && entries[pokeID].base.Attack}</p>
+            <p className="">
               Defense: {pokeID && entries[pokeID].base.Defense}
             </p>
           </div>
           <div>
-            <p className="text-gray-700 text-base p-1">
+            <p className="">
               Sp. Attack: {pokeID && entries[pokeID].base["Sp. Attack"]}
             </p>
-            <p className="text-gray-700 text-base p-1">
+            <p className="">
               Sp. Defense: {pokeID && entries[pokeID].base["Sp. Defense"]}
             </p>
           </div>

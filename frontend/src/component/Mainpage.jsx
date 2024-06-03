@@ -111,19 +111,16 @@ const Mainpage = () => {
   return (
     <div>
       {/* navbar */}
-      <div className=" flex  items-center justify-center flex-wrap mt-20  min-w-[50%]">
-        <ul className="my-2 flex flex-row flex-wrap  bg-[#d7423b] px-[20%] rounded-xl ">
+      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10 min-w-[50%]">
+        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl">
           <Link to={`/`}>
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 font-medium text-2xl"
+              className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
             >
-              <a
-                href="#"
-                className="flex items-center mr-6 hover:text-[#b5bcc7] transition-colors"
-              >
+              <a href="#" className="flex items-center mr-6  transition-colors">
                 Home
               </a>
             </Typography>
@@ -133,12 +130,9 @@ const Mainpage = () => {
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 font-medium text-2xl"
+              className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
             >
-              <a
-                href="#"
-                className="flex items-center mr-6 hover:text-[#b5bcc7] transition-colors"
-              >
+              <a href="#" className="flex items-center mr-6  transition-colors">
                 Leaderboard
               </a>
             </Typography>
@@ -147,13 +141,10 @@ const Mainpage = () => {
             as="li"
             variant="small"
             color="blue-gray"
-            className="p-1 font-medium text-2xl"
+            className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
           >
-            <a
-              href="#"
-              className="flex items-center hover:text-[#b5bcc7]  transition-colors"
-            >
-              instruction
+            <a href="#" className="flex items-center   transition-colors">
+              Instruction
             </a>
           </Typography>
         </ul>
