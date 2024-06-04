@@ -14,12 +14,15 @@ import Modal from "./Modal";
 import ModalWin from "./ModalWin.jsx";
 import AudioPlayer from "./AudioPlay.jsx";
 import AudioPlayer1 from "./AudioPlayer1.jsx";
+import axios from "axios";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
 
   const [showModal, setShowModal] = useState(false);
+
   const toggleModal = () => {
+    console.log("toggleModal pressed!");
     setShowModal(!showModal);
   };
 
@@ -59,20 +62,27 @@ const Mainpage = () => {
       setWinner(fight(stats1, pokeID1, stats2, pokeID2));
     }
   }
+  useEffect(() => {
+    console.log(`showModal: ${showModal}`);
+    fightShuffle();
+  }, [showModal]);
 
   useEffect(() => {
     if (winner !== -1) {
-      fightShuffle();
-      setWinner(-1); // reset the winner state
+      toggleModal();
+      // fightShuffle();
+      // setWinner(-1); // reset the winner state
+      console.log(entries[winner]);
     }
+    console.log(winner);
   }, [winner]);
 
-  useEffect(() => {
-    if (winner > -1) {
-      console.log(`The Winner is ${entries[winner].name.english}`);
-      setWinner(-1);
-    }
-  }, [winner]);
+  // useEffect(() => {
+  //   if (winner > -1) {
+  //     console.log(`The Winner is ${entries[winner].name.english}`);
+  //     setWinner(-1);
+  //   }
+  // }, [winner]);
 
   function getPokeID1(pokeID) {
     console.log(`Id Pokemon 1 is ${pokeID}`);
@@ -88,6 +98,7 @@ const Mainpage = () => {
     console.log(
       `Pokemon1 was shuffled ${count1} times and Pokemon2 was shuffled ${count2} times`
     );
+    setWinner(-1); // reset the winner state
   }, [count1, count2]);
 
   if (isLoading) {
@@ -107,6 +118,20 @@ const Mainpage = () => {
       }
     }
   };
+
+  //onClick function for saving winner in MongoDB
+  function saveWinner() {
+    try {
+      const response = axios.post(
+        "http://localhost:8000/pokemon/savewinner/",
+        entries[winner]
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+    fightShuffle();
+  }
 
   return (
     <div>
@@ -161,6 +186,15 @@ const Mainpage = () => {
 
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
+        {entries[winner] && (
+          <ModalWin
+            showModal={showModal}
+            toggleModal={toggleModal}
+            winnerName={entries[winner].name.english}
+            onSaveWinner={saveWinner}
+          />
+        )}
+
         <div className=" flex flex-col items-center mt-8">
           <Card
             key={1}
@@ -179,7 +213,6 @@ const Mainpage = () => {
           <button
             onClick={() => {
               startFight();
-              toggleModal();
             }}
           >
             <img
@@ -187,6 +220,7 @@ const Mainpage = () => {
               className=" h-[20rem] w-[17rem] mt-9"
             />
           </button>
+          {/* <button onClick={saveWinner}>Speichern</button> */}
           {winner !== -1 &&
             (winner === pokeID1 ? <AudioPlayer1 /> : <AudioPlayer />)}
           {/* WORK IN PROGRESS ON WIN/LOSS MODAL */}
