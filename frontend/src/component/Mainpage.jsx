@@ -155,7 +155,7 @@ const Mainpage = () => {
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-2xl font-bold hover:text-[#be120e]"
             >
               <a href="#" className="flex items-center mr-6  transition-colors">
                 Home
@@ -167,7 +167,7 @@ const Mainpage = () => {
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
+              className="p-1  text-2xl font-bold hover:text-[#be120e]"
             >
               <a href="#" className="flex items-center mr-6  transition-colors">
                 Leaderboard
@@ -178,7 +178,7 @@ const Mainpage = () => {
             as="li"
             variant="small"
             color="blue-gray"
-            className="p-1 font-medium text-2xl font-bold hover:text-[#be120e]"
+            className="p-1 text-2xl font-bold hover:text-[#be120e]"
           >
             <a href="#" className="flex items-center   transition-colors">
               Instruction
