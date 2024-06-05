@@ -1,5 +1,5 @@
 import express from "express";
-
+import { errorHandler } from "./Middleware/ErrorHandler.js";
 import "./db/server.js";
 import cors from "cors";
 import { pokedata } from "./data/pokedata.js";
@@ -37,7 +37,7 @@ app.get("/pokemon/:id", async (req, res) => {
   }
 });
 
-app.post("/pokemon/savewinner/", async (req, res) => {
+app.post("/pokemon/savewinner/", async (req, res, next) => {
   console.log(req.body);
   try {
     const dbResponse = await Leaderboard.create({
@@ -47,8 +47,37 @@ app.post("/pokemon/savewinner/", async (req, res) => {
     });
     console.log(dbResponse);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
+});
+
+app.put("/pokemon/savewinner/:name", async (req, res, next) => {
+  console.log("Put request");
+  try {
+    const found = await Leaderboard.findOne({ name: req.params.name });
+    if (!found) {
+      console.log("not found");
+    } else {
+      console.log(found.score);
+      const score = found.score + 10;
+      const updateEntry = await Leaderboard.findByIdAndUpdate(found._id, {
+        score: score,
+      });
+
+      res.status(201).json(updateEntry);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/pokemon/Winner/:name", async (req, res) => {
+  // Compare Winner
+  // console.log(req.params.name);
+  const winner = await Leaderboard.findOne({ name: req.params.name });
+  console.log(`Winner is foun? ${winner}`);
+  console.log(winner);
+  res.json(winner);
 });
 
 app.listen(PORT, () =>
