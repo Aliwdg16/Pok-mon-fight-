@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getRandomID, fight } from "../utils/utils.js";
 
 const Card = ({ entries, onGetPokemon, onGetID }) => {
-  console.log(entries);
   const [pokeID, setPokeID] = useState();
 
   useEffect(() => {
@@ -14,7 +13,6 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
   }, [onGetPokemon]);
 
   useEffect(() => {
-    // console.log(pokeID);
     onGetID(pokeID);
   }, [pokeID]);
 
@@ -93,7 +91,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
     // } else {
     //   backgroundColorClass = "bg-red-500";
     // }
-    console.log(backgroundColorClass);
+
     return backgroundColorClass;
   }
 

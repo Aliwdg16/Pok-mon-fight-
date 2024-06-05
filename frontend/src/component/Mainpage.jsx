@@ -22,7 +22,6 @@ const Mainpage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
-    console.log("toggleModal pressed!");
     setShowModal(!showModal);
   };
 
@@ -62,42 +61,34 @@ const Mainpage = () => {
       setWinner(fight(stats1, pokeID1, stats2, pokeID2));
     }
   }
-  useEffect(() => {
-    console.log(`showModal: ${showModal}`);
-    fightShuffle();
-  }, [showModal]);
+
+  // shuffle nach fight
+
+  const fightShuffle = () => {
+    if (winner > -1) {
+      if (winner !== pokeID1) {
+        shufflePokemon1();
+      } else if (winner !== pokeID2) {
+        shufflePokemon2();
+      }
+    }
+  };
 
   useEffect(() => {
     if (winner !== -1) {
       toggleModal();
-      // fightShuffle();
-      // setWinner(-1); // reset the winner state
-      console.log(entries[winner]);
     }
-    console.log(winner);
   }, [winner]);
 
-  // useEffect(() => {
-  //   if (winner > -1) {
-  //     console.log(`The Winner is ${entries[winner].name.english}`);
-  //     setWinner(-1);
-  //   }
-  // }, [winner]);
-
   function getPokeID1(pokeID) {
-    console.log(`Id Pokemon 1 is ${pokeID}`);
     setPokeID1(pokeID);
   }
 
   function getPokeID2(pokeID) {
-    console.log(`Id Pokemon 2 is ${pokeID}`);
     setPokeID2(pokeID);
   }
 
   useEffect(() => {
-    console.log(
-      `Pokemon1 was shuffled ${count1} times and Pokemon2 was shuffled ${count2} times`
-    );
     setWinner(-1); // reset the winner state
   }, [count1, count2]);
 
@@ -105,32 +96,53 @@ const Mainpage = () => {
     return <div>Loading...</div>;
   }
 
-  // shuffle nach fight
-
-  const fightShuffle = () => {
-    if (winner > -1) {
-      if (winner !== pokeID1) {
-        console.log("Player loses");
-        shufflePokemon1();
-      } else if (winner !== pokeID2) {
-        shufflePokemon2();
-        console.log("Player wins");
-      }
-    }
-  };
-
   //onClick function for saving winner in MongoDB
-  function saveWinner() {
+  async function saveWinner() {
+    console.log("save winner");
+    //Check if winner was created
+
     try {
-      const response = axios.post(
-        "http://localhost:8000/pokemon/savewinner/",
-        entries[winner]
+      const isWinnerCreated = await axios.get(
+        `http://localhost:8000/pokemon/Winner/${entries[winner].name.english}`
       );
-      console.log(response);
+      console.log(`isWinnerCreated: ${isWinnerCreated.data}`);
+      console.log(isWinnerCreated);
+      if (isWinnerCreated.data) {
+        //update
+        try {
+          const response = await axios.put(
+            `http://localhost:8000/pokemon/savewinner/${entries[winner].name.english}`
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        //create new entry for winner
+        try {
+          const response = await axios.post(
+            "http://localhost:8000/pokemon/savewinner/",
+            entries[winner]
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      }
     } catch (error) {
       console.log(error);
     }
+
     fightShuffle();
+    setWinner(-1);
+    toggleModal();
+  }
+
+  function closeModal() {
+    console.log("close Modal");
+    fightShuffle();
+    setWinner(-1);
+    toggleModal();
   }
 
   return (
@@ -189,9 +201,9 @@ const Mainpage = () => {
         {entries[winner] && (
           <ModalWin
             showModal={showModal}
-            toggleModal={toggleModal}
             winnerName={entries[winner].name.english}
             onSaveWinner={saveWinner}
+            onCloseModal={closeModal}
           />
         )}
 
