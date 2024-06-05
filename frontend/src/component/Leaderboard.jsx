@@ -13,7 +13,7 @@ const Leaderboard = () => {
     <>
       <div className="flex flex-row flex-wrap items-center justify-center ">
         <Link to={"/"}>
-          <button className="inline-block rounded-full mt-10 mb-10 px-40 py-10  bg-[#ddcb45] border-2 border-primary-100 pb-[6px] pt-2 text-lg font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-100 hover:bg-[#ddcb45] hover:bg-opacity-90 active:bg-[#ddcb45] focus:border-primary-accent-100 focus:outline-none focus:ring-0 active:border-primary-accent-200 ">
+          <button className="inline-block rounded-full mt-10 mb-10 px-40 py-10 text-xl font-bold bg-[#ddcb45] border-2 border-primary-100 pb-[6px] pt-2  uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-100 hover:bg-[#ddcb45] hover:bg-opacity-90 active:bg-[#ddcb45] focus:border-primary-accent-100 focus:outline-none focus:ring-0 active:border-primary-accent-200 ">
             Back to the fight
           </button>{" "}
         </Link>
