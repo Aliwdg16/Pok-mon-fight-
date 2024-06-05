@@ -3,7 +3,7 @@ import AudioPlayer1 from "./AudioPlayer1";
 
 export default function ModalWin({
   showModal,
-  toggleModal,
+
   winnerName,
   onSaveWinner,
   onCloseModal,
