@@ -198,7 +198,8 @@ const Mainpage = () => {
       </div>
 
       {/*main*/}
-      <section className=" flex flex-row justify-evenly flex-wrap">
+      <div className="flex justify-center">
+      <section className=" flex justify-evenly flex-wrap bg-[#204301] bg-opacity-75 bg-origin-content bg-no-repeat bg-fixed bg-center border-8 border-[#ddcb45] rounded-3xl w-4/5">
           {/* <ModalWin
             showModal={showModal}
             winnerName={entries[winner].name.english}
@@ -259,6 +260,7 @@ const Mainpage = () => {
           />
         </div>
       </section>
+      </div>
     </div>
      );
 };
