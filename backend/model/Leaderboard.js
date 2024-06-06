@@ -11,6 +11,10 @@ const leaderBoardSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  pokemonID: {
+    type: Number,
+    unique: true,
+  },
 });
 
 const Leaderboard = mongoose.model("leaderboard", leaderBoardSchema);

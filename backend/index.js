@@ -55,6 +55,7 @@ app.post("/pokemon/savewinner/", async (req, res, next) => {
       name: req.body.name.english,
       score: 10,
       image: "",
+      pokemonID: req.body.id,
     });
     console.log(dbResponse);
   } catch (error) {
