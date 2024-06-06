@@ -21,6 +21,17 @@ app.get("/pokemon", async (req, res) => {
   }
 });
 
+app.get("/pokemon/Leaderboard/", async (req, res, next) => {
+  console.log("endpoint hit");
+  try {
+    const winner = await Leaderboard.find({});
+    console.log(winner);
+    res.json(winner);
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get("/pokemon/:id", async (req, res) => {
   const id = req.params.id;
 
