@@ -133,9 +133,7 @@ const Mainpage = () => {
       console.log(error);
     }
 
-    fightShuffle();
-    setWinner(-1);
-    toggleModal();
+closeModal();
   }
 
   function closeModal() {
@@ -189,14 +187,21 @@ const Mainpage = () => {
 
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
-        {entries[winner] && (
-          <ModalWin
+     
+
+
+
+
+{/* <ModalWin
             showModal={showModal}
             winnerName={entries[winner].name.english}
             onSaveWinner={saveWinner}
             onCloseModal={closeModal}
-          />
-        )}
+          /> */}
+
+
+
+
 
         <div className=" flex flex-col items-center mt-8">
           <Card
@@ -217,7 +222,21 @@ const Mainpage = () => {
             onClick={() => {
               startFight();
             }}
-          >
+            >
+
+
+ {entries[winner] && (
+ 
+ <div className=" text-left text-xl font-bold">
+  <ModalWin
+                        showModal={showModal}
+                        winnerName={entries[winner].name.english}
+                        onSaveWinner={saveWinner}
+                        onCloseModal={closeModal}
+                       />
+                        </div>
+                    )}
+
             <img
               src="./src/assets/Schwert.webp"
               className=" h-[20rem] w-[17rem] mt-9"

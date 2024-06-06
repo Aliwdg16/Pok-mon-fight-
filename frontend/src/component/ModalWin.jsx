@@ -8,11 +8,11 @@ export default function ModalWin({
   onSaveWinner,
   onCloseModal,
 }) {
-  if (showModal) {
-    document.body.classList.add("overflow-y-hidden");
-  } else {
-    document.body.classList.remove("overflow-y-hidden");
-  }
+  // if (showModal) {
+  //   document.body.classList.add("overflow-y-hidden");
+  // } else {
+  //   document.body.classList.remove("overflow-y-hidden");
+  // }
 
   return (
     <>
@@ -26,17 +26,17 @@ export default function ModalWin({
             {showModal ? <AudioPlayer1 /> : null}
             <p className="text-lg">{`${winnerName} wins!`}</p>
             <img src="./src/assets/pikachuWin.gif" alt="jumping Pikachu" />
-            <button
+            {/* <button
               className="absolute top-2 right-2 text-sm bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={onCloseModal}
             >
               CLOSE
-            </button>
+            </button> */}
             <button
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={onSaveWinner}
             >
-              SAVE
+              SAVE & CLOSE
             </button>
           </div>
         </div>
