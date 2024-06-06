@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-
-
 
 
 const Leaderboard = () => {
@@ -46,10 +42,11 @@ fetchData();
           </button>
         </Link>
       </div>
-      <div className=" flex justify-center  border-[0.3rem] h-screen w-screen border-[#204301] mt-3 bg-[url('/src/assets/bg.jpg')] bg-origin-content bg-no-repeat bg-fixed bg-center bg-cover">
+      <div className=" flex justify-center  border-[0.3rem] min-h-[30rem] border-[#204301] mt-3 bg-[url('/src/assets/bg.jpg')] bg-origin-content bg-no-repeat bg-fixed bg-center bg-cover">
         {/* <img src="./src/assets/leaderboard.png" alt="leaderboard" className="w-[50%] h-[75%] mt-10 mb-10 relative" /> */}
         <div className=" bg-[url('./src/assets/leaderboard.png')] w-[100%]  h-screen bg-no-repeat absolute mt-28  "></div>
-        <table class="min-w-[75%] bg-[#204301] bg-opacity-70  border-[0.1rem] border-[#bf1310] my-10 relative">
+      
+         <table class="min-w-[75%] bg-[#204301] bg-opacity-70  border-[0.1rem] border-[#bf1310] my-10 relative">
           <thead>
             <tr class="bg-gray-200 text-gray-600 text-2xl">
               <th class="text-center py-3">NAME</th>
@@ -66,7 +63,7 @@ fetchData();
             </tr>
           ))}
           </tbody>
-        </table>
+        </table> 
       </div>
     </>
   );
