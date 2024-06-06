@@ -147,50 +147,40 @@ const Mainpage = () => {
   return (
     <div>
       {/* navbar */}
-      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10 min-w-[50%]">
-        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl">
-          {/* <Link to={`/`}>
-            <Typography
-              as="li"
-              variant="small"
-              color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
-            >
-              <a href="#" className="flex items-center mr-6  transition-colors">
-                Home
-              </a>
-            </Typography>
-          </Link> */}
+      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10  min-w-[50%]">
+        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl pt-3 pb-3">
           <Link to={"/leaderboard"}>
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-8 pl-10"
             >
-              <a href="#" className="flex items-center mr-6  transition-colors">
+              <a href="#" className="flex items-center   transition-colors">
                 Leaderboard
               </a>
             </Typography>
           </Link>
-          <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 text-2xl font-bold hover:text-[#be120e]"
-          >
-            <a href="#" className="flex items-center mr-6  transition-colors">
-              Instruction
-            </a>
-          </Typography>
+          <Link to={"/instructions"}>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-10 pl-10"
+            >
+              <a href="#" className="flex items-center   transition-colors">
+                Instruction
+              </a>
+            </Typography>
+          </Link>
           <Link to={"/pokedex"}>
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-10 pl-8"
             >
-              <a href="#" className="flex items-center mr-6  transition-colors">
+              <a href="#" className="flex items-center   transition-colors">
                 Pokedex
               </a>
             </Typography>
