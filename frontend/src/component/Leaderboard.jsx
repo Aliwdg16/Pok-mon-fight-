@@ -60,8 +60,13 @@ const Leaderboard = () => {
                 className="border-b border-gray-200 py-3 hover:bg-[#204301] hover:bg-opacity-70"
               >
                 <td className="flex flex-row place-content-center ">
-                  <img
+                  {/* <img
                     src={`./src/assets/Sprites/${entry.pokemonID}.png`}
+                    alt="pokemon sprite"
+                    className="max-w-fit"
+                  /> */}
+                  <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${entry.pokemonID}.png`}
                     alt="pokemon sprite"
                     className="max-w-fit"
                   />
