@@ -148,7 +148,7 @@ const Mainpage = () => {
       {/* navbar */}
       <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10 min-w-[50%]">
         <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl">
-          <Link to={`/`}>
+          {/* <Link to={`/`}>
             <Typography
               as="li"
               variant="small"
@@ -159,7 +159,7 @@ const Mainpage = () => {
                 Home
               </a>
             </Typography>
-          </Link>
+          </Link> */}
           <Link to={"/leaderboard"}>
             <Typography
               as="li"
@@ -178,7 +178,7 @@ const Mainpage = () => {
             color="blue-gray"
             className="p-1 text-2xl font-bold hover:text-[#be120e]"
           >
-            <a href="#" className="flex items-center   transition-colors">
+            <a href="#" className="flex items-center mr-6  transition-colors">
               Instruction
             </a>
           </Typography>
@@ -198,9 +198,8 @@ const Mainpage = () => {
       </div>
 
       {/*main*/}
-      <section className="flex flex-row justify-evenly flex-wrap bg-[url('/src/assets/background1.jpg')] bg-origin-content bg-no-repeat bg-fixed bg-center bg-transparent-75">
-        {/* {entries[winner] && (
-          <ModalWin
+      <section className=" flex flex-row justify-evenly flex-wrap">
+          {/* <ModalWin
             showModal={showModal}
             winnerName={entries[winner].name.english}
             onSaveWinner={saveWinner}
@@ -239,7 +238,7 @@ const Mainpage = () => {
               </div>
             )}
             <img
-              src="./src/assets/combat.png"
+              src="./src/assets/combat1.png"
               className=" h-[30rem] w-auto mt-9"
             />
           </button>
@@ -261,7 +260,7 @@ const Mainpage = () => {
         </div>
       </section>
     </div>
-  );
+     );
 };
 
 export default Mainpage;

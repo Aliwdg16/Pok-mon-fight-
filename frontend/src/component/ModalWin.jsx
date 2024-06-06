@@ -8,11 +8,11 @@ export default function ModalWin({
   onSaveWinner,
   onCloseModal,
 }) {
-  if (showModal) {
-    document.body.classList.add("overflow-y-hidden");
-  } else {
-    document.body.classList.remove("overflow-y-hidden");
-  }
+  // if (showModal) {
+  //   document.body.classList.add("overflow-y-hidden");
+  // } else {
+  //   document.body.classList.remove("overflow-y-hidden");
+  // }
 
   return (
     <>
