@@ -133,7 +133,7 @@ const Mainpage = () => {
       console.log(error);
     }
 
-closeModal();
+    closeModal();
   }
 
   function closeModal() {
@@ -165,7 +165,7 @@ closeModal();
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1  text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-2xl font-bold hover:text-[#be120e]"
             >
               <a href="#" className="flex items-center mr-6  transition-colors">
                 Leaderboard
@@ -182,26 +182,30 @@ closeModal();
               Instruction
             </a>
           </Typography>
+          <Link to={"/pokedex"}>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="p-1 text-2xl font-bold hover:text-[#be120e]"
+            >
+              <a href="#" className="flex items-center mr-6  transition-colors">
+                Pokedex
+              </a>
+            </Typography>
+          </Link>
         </ul>
       </div>
 
       {/*main*/}
       <section className=" flex flex-row justify-evenly flex-wrap">
-     
-
-
-
-
 {/* <ModalWin
             showModal={showModal}
             winnerName={entries[winner].name.english}
             onSaveWinner={saveWinner}
             onCloseModal={closeModal}
-          /> */}
-
-
-
-
+          />
+        )} */}
 
         <div className=" flex flex-col items-center mt-8">
           <Card
@@ -222,39 +226,23 @@ closeModal();
             onClick={() => {
               startFight();
             }}
-            >
-
-
- {entries[winner] && (
- 
- <div className=" text-left text-xl font-bold">
-  <ModalWin
-                        showModal={showModal}
-                        winnerName={entries[winner].name.english}
-                        onSaveWinner={saveWinner}
-                        onCloseModal={closeModal}
-                       />
-                        </div>
-                    )}
-
+          >
+            {entries[winner] && (
+              <div className=" text-left text-xl font-bold">
+                <ModalWin
+                  showModal={showModal}
+                  winnerName={entries[winner].name.english}
+                  onSaveWinner={saveWinner}
+                  onCloseModal={closeModal}
+                />
+              </div>
+            )}
             <img
-              src="./src/assets/Schwert.webp"
-              className=" h-[20rem] w-[17rem] mt-9"
+              src="./src/assets/combat.png"
+              className=" h-[30rem] w-auto mt-9"
             />
           </button>
           {/* <button onClick={saveWinner}>Speichern</button> */}
-          {winner !== -1 &&
-            (winner === pokeID1 ? <AudioPlayer1 /> : <AudioPlayer />)}
-          {/* WORK IN PROGRESS ON WIN/LOSS MODAL */}
-          {/* {winner !== -1 &&
-            (winner === pokeID1 ? (
-              <ModalWin showModal={showModal} toggleModal={toggleModal} />
-            ) : (
-              <Modal showModal={showModal} toggleModal={toggleModal} />
-            ))} */}
-
-          {/* <Modal showModal={showModal} toggleModal={toggleModal} />
-          <ModalWin showModal={showModal} toggleModal={toggleModal} /> */}
         </div>
 
         <div className="flex flex-col items-center mt-8">
