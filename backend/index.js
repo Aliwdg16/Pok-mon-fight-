@@ -49,6 +49,7 @@ app.get("/pokemon/:id", async (req, res) => {
 });
 
 app.post("/pokemon/savewinner/", async (req, res, next) => {
+  console.log("post request");
   console.log(req.body);
   try {
     const dbResponse = await Leaderboard.create({
