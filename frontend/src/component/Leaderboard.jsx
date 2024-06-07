@@ -12,7 +12,7 @@ const Leaderboard = () => {
       const response = await axios.get(
         `http://localhost:8000/pokemon/Leaderboard/`
       );
-      setEntries(response.data);
+      setEntries(response.data.sort((a, b) => b.score - a.score));
       console.log(response.data);
       setIsLoading(false);
     } catch (error) {

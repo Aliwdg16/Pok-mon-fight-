@@ -31,7 +31,8 @@ const Mainpage = () => {
   const [pokeID1, setPokeID1] = useState(-1);
   const [pokeID2, setPokeID2] = useState(-1);
   const [winner, setWinner] = useState(-1);
-
+  const [createWinner, setCreateWinner] = useState(false);
+  const [updateWinner, setUpdateWinner] = useState(false);
   //Funktionen triggern einen shuffle counter mit dem ein useEffect
   // in Card.jsx getriggert werden kann
   //Evtl. für maximale Shuffle nutzbar
@@ -96,6 +97,31 @@ const Mainpage = () => {
     return <div>Loading...</div>;
   }
 
+  async function createWinnerEntry() {
+    //create new entry for winner
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/pokemon/savewinner/",
+        entries[winner]
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function updateWinnerEntry() {
+    //update
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/pokemon/savewinner/${entries[winner].name.english}`
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //onClick function for saving winner in MongoDB
   async function saveWinner() {
     console.log("save winner");
@@ -109,26 +135,9 @@ const Mainpage = () => {
       console.log(`isWinnerCreated: ${isWinnerCreated.data}`);
       console.log(isWinnerCreated);
       if (isWinnerCreated.data) {
-        //update
-        try {
-          const response = await axios.put(
-            `http://localhost:8000/pokemon/savewinner/${entries[winner].name.english}`
-          );
-          console.log(response);
-        } catch (error) {
-          console.log(error);
-        }
+        updateWinnerEntry;
       } else {
-        //create new entry for winner
-        try {
-          const response = await axios.post(
-            "http://localhost:8000/pokemon/savewinner/",
-            entries[winner]
-          );
-          console.log(response);
-        } catch (error) {
-          console.log(error);
-        }
+        createWinner();
       }
     } catch (error) {
       console.log(error);
