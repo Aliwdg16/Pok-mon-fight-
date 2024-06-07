@@ -135,9 +135,9 @@ const Mainpage = () => {
       console.log(`isWinnerCreated: ${isWinnerCreated.data}`);
       console.log(isWinnerCreated);
       if (isWinnerCreated.data) {
-        updateWinnerEntry;
+        updateWinnerEntry();
       } else {
-        createWinner();
+        createWinnerEntry();
       }
     } catch (error) {
       console.log(error);
