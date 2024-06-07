@@ -104,7 +104,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
           key={lowercaseType}
           alt={`${lowercaseType} icon`}
           src={`/typeIcons/${lowercaseType}.png`}
-          className="w-12 h-12"
+          className="w-9 h-9"
         />
       );
     })
@@ -118,11 +118,11 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
       <div
         className={
           pokeID &&
-          `max-w-sm rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-[#ddcb45] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300`
+          ` container min-w-[12rem] max-w-[20rem]  min-h-[24rem] max-h-[30rem] rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-[#ddcb45] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300`
         }
       >
         <div className="flex flex-row justify-between p-2 pb-0">
-          <p className="font-bold text-3xl p-4 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
+          <p className="font-bold text-2xl p-3 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
             {pokeID && entries[pokeID].name.english}
           </p>
           <div className="flex flex-row items-center">
@@ -132,7 +132,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
             {typeIcons}
           </div>
         </div>
-        <div className="m-2 border-1  bg-white border-8 border-[#ddcb45] rounded">
+        <div className="m-2 mt-1 border-1  bg-white border-8 border-[#ddcb45] rounded">
           <img
             src={
               pokeID &&
@@ -141,7 +141,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
             alt={pokeID && entries[pokeID].name.english}
           />
         </div>
-        <div className="px-6 py-4 pt-4 pb-4 m-3 bg-gray-200 rounded-lg flex flex-row justify-between text-gray-700 p-1 text-xl font-bold">
+        <div className="px-6 py-3  m-3 bg-gray-200 rounded-lg flex flex-row justify-between text-gray-700 p-1 text-l font-bold">
           <div>
             <p className="">Attack: {pokeID && entries[pokeID].base.Attack}</p>
             <p className="">

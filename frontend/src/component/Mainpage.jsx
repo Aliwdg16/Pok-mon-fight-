@@ -147,8 +147,8 @@ const Mainpage = () => {
   return (
     <div>
       {/* navbar */}
-      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10  min-w-[50%]">
-        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl pt-3 pb-3">
+      <div className=" flex  items-center justify-center flex-wrap my-5  min-w-[50%]">
+        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl py-2">
           <Link to={"/leaderboard"}>
             <Typography
               as="li"
@@ -208,7 +208,7 @@ const Mainpage = () => {
             />
             <img
               src="./src/assets/pokeball.webp"
-              className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              className=" h-[15rem] w-[12rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               onClick={shufflePokemon1}
             />
           </div>
@@ -231,7 +231,7 @@ const Mainpage = () => {
               )}
               <img
                 src="./src/assets/combat1.png"
-                className=" h-[30rem] w-auto mt-9"
+                className=" h-[23rem] w-auto mt-9"
               />
             </button>
             {/* <button onClick={saveWinner}>Speichern</button> */}
@@ -246,7 +246,7 @@ const Mainpage = () => {
             />
             <img
               src="./src/assets/pokeball.webp"
-              className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              className=" h-[15rem] w-[12rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               onClick={shufflePokemon2}
             />
           </div>
