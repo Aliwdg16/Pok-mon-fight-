@@ -115,21 +115,12 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
 
   return entries && pokeID ? (
     <>
-      {/* <div
-        className={
-          pokeID &&
-          `max-w-sm rounded-lg overflow-hidden shadow-lg ${
-            typeColors[entries[pokeID].type[0]]
-          } border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300`
-        }
-      > */}
       <div
         className={
           pokeID &&
-          `max-w-sm rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-[#ddcb45] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300`
+          `max-w-sm rounded-lg overflow-hidden shadow-lg ${getBackgroundColor()} border-8 border-[#ddcb45] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300`
         }
       >
-        {/* <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-violet-300 border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"> */}
         <div className="flex flex-row justify-between p-2 pb-0">
           <p className="font-bold text-3xl p-4 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
             {pokeID && entries[pokeID].name.english}

@@ -99,6 +99,7 @@ const Mainpage = () => {
   //onClick function for saving winner in MongoDB
   async function saveWinner() {
     console.log("save winner");
+    console.log(winner);
     //Check if winner was created
 
     try {
@@ -146,50 +147,40 @@ const Mainpage = () => {
   return (
     <div>
       {/* navbar */}
-      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10 min-w-[50%]">
-        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl">
-          {/* <Link to={`/`}>
-            <Typography
-              as="li"
-              variant="small"
-              color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
-            >
-              <a href="#" className="flex items-center mr-6  transition-colors">
-                Home
-              </a>
-            </Typography>
-          </Link> */}
+      <div className=" flex  items-center justify-center flex-wrap mt-10 mb-10  min-w-[50%]">
+        <ul className="my-2 flex flex-row flex-wrap  bg-[#ddcb45] px-[20%] rounded-xl pt-3 pb-3">
           <Link to={"/leaderboard"}>
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-8 pl-10"
             >
-              <a href="#" className="flex items-center mr-6  transition-colors">
+              <a href="#" className="flex items-center   transition-colors">
                 Leaderboard
               </a>
             </Typography>
           </Link>
-          <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 text-2xl font-bold hover:text-[#be120e]"
-          >
-            <a href="#" className="flex items-center mr-6  transition-colors">
-              Instruction
-            </a>
-          </Typography>
+          <Link to={"/instructions"}>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-10 pl-10"
+            >
+              <a href="#" className="flex items-center   transition-colors">
+                Instruction
+              </a>
+            </Typography>
+          </Link>
           <Link to={"/pokedex"}>
             <Typography
               as="li"
               variant="small"
               color="blue-gray"
-              className="p-1 text-2xl font-bold hover:text-[#be120e]"
+              className="p-1 text-3xl font-bold hover:text-[#be120e] pr-10 pl-8"
             >
-              <a href="#" className="flex items-center mr-6  transition-colors">
+              <a href="#" className="flex items-center   transition-colors">
                 Pokedex
               </a>
             </Typography>
@@ -199,7 +190,7 @@ const Mainpage = () => {
 
       {/*main*/}
       <div className="flex justify-center">
-      <section className=" flex justify-evenly flex-wrap bg-[#204301] bg-opacity-75 bg-origin-content bg-no-repeat bg-fixed bg-center border-8 border-[#ddcb45] rounded-3xl w-4/5">
+        <section className=" flex justify-evenly flex-wrap bg-[#204301] bg-opacity-75 bg-origin-content bg-no-repeat bg-fixed bg-center border-8 border-[#ddcb45] rounded-3xl w-4/5">
           {/* <ModalWin
             showModal={showModal}
             winnerName={entries[winner].name.english}
@@ -208,61 +199,61 @@ const Mainpage = () => {
           />
         )} */}
 
-        <div className=" flex flex-col items-center mt-8">
-          <Card
-            key={1}
-            entries={entries}
-            onGetPokemon={count1}
-            onGetID={getPokeID1}
-          />
-          <img
-            src="./src/assets/pokeball.webp"
-            className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-            onClick={shufflePokemon1}
-          />
-        </div>
-
-        <div className="mt-60">
-          <button
-            onClick={() => {
-              startFight();
-            }}
-          >
-            {entries[winner] && (
-              <div className=" text-left text-xl font-bold">
-                <ModalWin
-                  showModal={showModal}
-                  winnerName={entries[winner].name.english}
-                  onSaveWinner={saveWinner}
-                  onCloseModal={closeModal}
-                />
-              </div>
-            )}
-            <img
-              src="./src/assets/combat1.png"
-              className=" h-[30rem] w-auto mt-9"
+          <div className=" flex flex-col items-center mt-8">
+            <Card
+              key={1}
+              entries={entries}
+              onGetPokemon={count1}
+              onGetID={getPokeID1}
             />
-          </button>
-          {/* <button onClick={saveWinner}>Speichern</button> */}
-        </div>
+            <img
+              src="./src/assets/pokeball.webp"
+              className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              onClick={shufflePokemon1}
+            />
+          </div>
 
-        <div className="flex flex-col items-center mt-8">
-          <Card
-            key={1}
-            entries={entries}
-            onGetPokemon={count2}
-            onGetID={getPokeID2}
-          />
-          <img
-            src="./src/assets/pokeball.webp"
-            className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-            onClick={shufflePokemon2}
-          />
-        </div>
-      </section>
+          <div className="mt-60">
+            <button
+              onClick={() => {
+                startFight();
+              }}
+            >
+              {entries[winner] && (
+                <div className=" text-left text-xl font-bold">
+                  <ModalWin
+                    showModal={showModal}
+                    winnerName={entries[winner].name.english}
+                    onSaveWinner={saveWinner}
+                    onCloseModal={closeModal}
+                  />
+                </div>
+              )}
+              <img
+                src="./src/assets/combat1.png"
+                className=" h-[30rem] w-auto mt-9"
+              />
+            </button>
+            {/* <button onClick={saveWinner}>Speichern</button> */}
+          </div>
+
+          <div className="flex flex-col items-center mt-8">
+            <Card
+              key={1}
+              entries={entries}
+              onGetPokemon={count2}
+              onGetID={getPokeID2}
+            />
+            <img
+              src="./src/assets/pokeball.webp"
+              className=" h-[20rem] w-[17rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              onClick={shufflePokemon2}
+            />
+          </div>
+        </section>
       </div>
     </div>
-     );
+  );
 };
 
 export default Mainpage;

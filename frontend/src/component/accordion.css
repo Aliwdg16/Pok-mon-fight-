@@ -1,0 +1,30 @@
+@import "./animations.css";
+
+.accordion {
+  @apply border border-gray-200 rounded-md overflow-hidden;
+}
+
+.accordion-header {
+  @apply flex items-center justify-between p-4 cursor-pointer;
+}
+
+.accordion-content {
+  @apply p-6 overflow-hidden transition-all duration-300;
+  overflow: hidden;
+}
+
+.accordion-content:not(.animate-slide-down) {
+  display: none;
+}
+
+.accordion-content li {
+  padding: 5px 0;
+}
+
+.animate-slide-down {
+  animation: animate-slide-down 0.3s forwards;
+}
+
+.animate-slide-up {
+  animation: animate-slide-up 0.3s forwards;
+}
