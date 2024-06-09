@@ -6,7 +6,7 @@ const Pokedex = () => {
   const { entries, isLoading } = useFetchData();
   const [pageNo, setPageNo] = useState(1);
   const [showEntries, setShowEntries] = useState([]);
-  const showNumber = 24;
+  const showNumber = 25;
 
   useEffect(() => {
     if (entries && entries.length > 0) {
@@ -38,13 +38,13 @@ const Pokedex = () => {
           <ul className=" mt-0 w-4/5 space-y-1 bg-sky-800/0 flex flex-row flex-wrap justify-center">
             {showEntries.map((entry, index) => (
               <li key={`${entry.id}-${index}`} className="m-3">
-                <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-violet-300 border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300 mb-3">
+                <div className="container min-w-[12rem] max-w-[20rem]  min-h-[24rem] max-h-[30rem] rounded-lg overflow-hidden shadow-lg bg-violet-300 border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300 mb-3">
                   <div className="flex flex-row justify-between p-2">
-                    <p className="font-bold text-2xl p-4 indent-10 text-pretty">
+                    <p className="font-bold text-2xl p-3 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
                       {entry.name.english}
                     </p>
                     <div className="flex flex-row items-center">
-                      <p className="text-red-500 font-bold text-xl p-2">
+                      <p className="text-red-500 font-bold text-xl p-2 content-center">
                         {entry.base.HP}HP
                       </p>
                       {/* Type Icons Part */}
@@ -72,20 +72,14 @@ const Pokedex = () => {
                       alt={entry.name.english}
                     />
                   </div>
-                  <div className="px-6 py-4 pt-4 pb-4 m-3 bg-gray-200 rounded-lg flex flex-row justify-between">
+                  <div className="px-6 py-3  m-3 bg-gray-200 rounded-lg flex flex-row justify-between text-gray-700 p-1 text-l text-nowrap font-bold">
                     <div>
-                      <p className="text-gray-700 text-base p-1">
-                        Attack: {entry.base.Attack}
-                      </p>
-                      <p className="text-gray-700 text-base p-1">
-                        Defense: {entry.base.Defense}
-                      </p>
+                      <p className="">Attack: {entry.base.Attack}</p>
+                      <p className="">Defense: {entry.base.Defense}</p>
                     </div>
                     <div>
-                      <p className="text-gray-700 text-base p-1">
-                        Sp. Attack: {entry.base["Sp. Attack"]}
-                      </p>
-                      <p className="text-gray-700 text-base p-1">
+                      <p className="">Sp. Attack: {entry.base["Sp. Attack"]}</p>
+                      <p className="">
                         Sp. Defense: {entry.base["Sp. Defense"]}
                       </p>
                     </div>
