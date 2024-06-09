@@ -15,6 +15,7 @@ import ModalWin from "./ModalWin.jsx";
 import AudioPlayer from "./AudioPlay.jsx";
 import AudioPlayer1 from "./AudioPlayer1.jsx";
 import axios from "axios";
+import { SpinnerCircularFixed } from 'spinners-react';
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
@@ -94,7 +95,7 @@ const Mainpage = () => {
   }, [count1, count2]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className=" flex justify-center"><SpinnerCircularFixed size={71} thickness={99} speed={146} color="rgba(57, 172, 110, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /></div>;
   }
 
   async function createWinnerEntry() {
