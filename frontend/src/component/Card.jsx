@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getRandomID, fight } from "../utils/utils.js";
+import { SpinnerCircularFixed } from 'spinners-react';
 
 const Card = ({ entries, onGetPokemon, onGetID }) => {
   const [pokeID, setPokeID] = useState();
@@ -109,7 +110,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
       );
     })
   ) : (
-    <p>Loading</p>
+    <p>  <SpinnerCircularFixed size={71} thickness={99} speed={146} color="rgba(57, 172, 110, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /></p>
   );
   // Type Icons end
 
@@ -160,7 +161,7 @@ const Card = ({ entries, onGetPokemon, onGetID }) => {
       </div>
     </>
   ) : (
-    <div>Loading...</div>
+    <div><SpinnerCircularFixed size={71} thickness={99} speed={146} color="rgba(57, 172, 110, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /></div>
   );
 };
 
