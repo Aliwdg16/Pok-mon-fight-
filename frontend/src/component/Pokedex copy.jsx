@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useFetchData from "./FetchData";
-import PokedexModal from "./PokedexModal";
 
 const Pokedex = () => {
   const { entries, isLoading } = useFetchData();
   const [pageNo, setPageNo] = useState(1);
   const [showEntries, setShowEntries] = useState([]);
   const showNumber = 25;
-  // State to track the Modal
-  const [isOpen, setIsOpen] = useState(false);
-  // New state to store the selected entry
-  const [selectedEntry, setSelectedEntry] = useState(null);
 
   useEffect(() => {
     if (entries && entries.length > 0) {
@@ -24,18 +19,6 @@ const Pokedex = () => {
     const endIndex = newPageNo * showNumber;
     setShowEntries(entries.slice(startIndex, endIndex));
     setPageNo(newPageNo);
-  };
-
-  // Add a new function to handle modal open
-  const handleModalOpen = (entry) => {
-    setIsOpen(true);
-    setSelectedEntry(entry);
-  };
-
-  // Add a new function to handle modal close
-  const handleModalClose = () => {
-    setIsOpen(false);
-    setSelectedEntry(null);
   };
 
   return (
@@ -54,11 +37,7 @@ const Pokedex = () => {
         ) : (
           <ul className=" mt-0 w-4/5 space-y-1 bg-sky-800/0 flex flex-row flex-wrap justify-center">
             {showEntries.map((entry, index) => (
-              <li
-                key={`${entry.id}-${index}`}
-                className="m-3"
-                onClick={() => handleModalOpen(entry)}
-              >
+              <li key={`${entry.id}-${index}`} className="m-3">
                 <div className="container min-w-[12rem] max-w-[20rem]  min-h-[24rem] max-h-[30rem] rounded-lg overflow-hidden shadow-lg bg-violet-300 border-8 border-yellow-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 duration-300 mb-3">
                   <div className="flex flex-row justify-between p-2">
                     <p className="font-bold text-2xl p-3 text-pretty drop-shadow-[0_1.2px_1.2px_white]">
@@ -134,12 +113,6 @@ const Pokedex = () => {
             </button>
           )}
         </div>
-        {/* Modal */}
-        {isOpen && (
-          <PokedexModal entry={selectedEntry} onClose={handleModalClose}>
-            {/* Modal content will go here */}
-          </PokedexModal>
-        )}
       </div>
     </>
   );
