@@ -15,11 +15,11 @@ import ModalWin from "./ModalWin.jsx";
 import AudioPlayer from "./AudioPlay.jsx";
 import AudioPlayer1 from "./AudioPlayer1.jsx";
 import axios from "axios";
-import { SpinnerCircularFixed } from 'spinners-react';
+import { SpinnerCircularFixed } from "spinners-react";
 
 const Mainpage = () => {
   const { entries, isLoading } = useFetchData();
-
+  console.log(entries);
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -48,18 +48,22 @@ const Mainpage = () => {
   function startFight() {
     setFightCount(fightCount + 1);
     if (pokeID1 > -1 && pokeID2 > -1) {
-      const stats1 = [
-        entries[pokeID1].base.Attack,
-        entries[pokeID1].base.Defense,
-        entries[pokeID1].base["Sp. Attack"],
-        entries[pokeID1].base["Sp. Defense"],
-      ];
-      const stats2 = [
-        entries[pokeID2].base.Attack,
-        entries[pokeID2].base.Defense,
-        entries[pokeID2].base["Sp. Attack"],
-        entries[pokeID2].base["Sp. Defense"],
-      ];
+      const stats1 = {
+        HP: entries[pokeID1].base.HP,
+        Attack: entries[pokeID1].base.Attack,
+        Defense: entries[pokeID1].base.Defense,
+        SpAttack: entries[pokeID1].base["Sp. Attack"],
+        SpDefense: entries[pokeID1].base["Sp. Defense"],
+        Speed: entries[pokeID1].base.Speed,
+      };
+      const stats2 = {
+        HP: entries[pokeID2].base.HP,
+        Attack: entries[pokeID2].base.Attack,
+        Defense: entries[pokeID2].base.Defense,
+        SpAttack: entries[pokeID2].base["Sp. Attack"],
+        SpDefense: entries[pokeID2].base["Sp. Defense"],
+        Speed: entries[pokeID2].base.Speed,
+      };
       setWinner(fight(stats1, pokeID1, stats2, pokeID2));
     }
   }
@@ -95,7 +99,17 @@ const Mainpage = () => {
   }, [count1, count2]);
 
   if (isLoading) {
-    return <div className=" flex justify-center"><SpinnerCircularFixed size={71} thickness={99} speed={146} color="rgba(57, 172, 110, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /></div>;
+    return (
+      <div className=" flex justify-center">
+        <SpinnerCircularFixed
+          size={71}
+          thickness={99}
+          speed={146}
+          color="rgba(57, 172, 110, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+        />
+      </div>
+    );
   }
 
   async function createWinnerEntry() {
