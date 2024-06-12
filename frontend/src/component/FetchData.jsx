@@ -14,7 +14,7 @@ function useFetchData() {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `https://pok-mon-fight.onrender.com/pokemon`
+          `${import.meta.env.VITE_DEPLOY_URL}/pokemon`
         );
         setEntries(response.data);
         setIsLoading(false);

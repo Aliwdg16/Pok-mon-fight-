@@ -3,20 +3,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { SpinnerCircularFixed } from "spinners-react";
-// import dotenv from "dotenv";
-// dotenv.config();
-// const env = process.env.DEPLOY_URL;
 
 const Leaderboard = () => {
   const [entries, setEntries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const APIURL = import.meta.env.VITE_DEPLOY_URL;
+  console.log(APIURL);
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `https://pok-mon-fight.onrender.com/pokemon/Leaderboard/`
-      );
+      const response = await axios.get(`${APIURL}/pokemon/Leaderboard/`);
       setEntries(response.data.sort((a, b) => b.score - a.score));
       console.log(response.data);
       setIsLoading(false);
