@@ -116,7 +116,7 @@ const Mainpage = () => {
     //create new entry for winner
     try {
       const response = await axios.post(
-        "http://localhost:8000/pokemon/savewinner/",
+        "https://pok-mon-fight.onrender.com/pokemon/savewinner/",
         entries[winner]
       );
       console.log(response);
@@ -129,7 +129,7 @@ const Mainpage = () => {
     //update
     try {
       const response = await axios.put(
-        `http://localhost:8000/pokemon/savewinner/${entries[winner].name.english}`
+        `https://pok-mon-fight.onrender.com/pokemon/savewinner/${entries[winner].name.english}`
       );
       console.log(response);
     } catch (error) {
@@ -145,7 +145,7 @@ const Mainpage = () => {
 
     try {
       const isWinnerCreated = await axios.get(
-        `http://localhost:8000/pokemon/Winner/${entries[winner].name.english}`
+        `https://pok-mon-fight.onrender.com/pokemon/Winner/${entries[winner].name.english}`
       );
       console.log(`isWinnerCreated: ${isWinnerCreated.data}`);
       console.log(isWinnerCreated);
