@@ -55,9 +55,18 @@ const Instructions = () => {
                   </li>
                 </ol>
               </Accordion>
+
               <Accordion title="Do I want to Play?">
                 <p className="uppercase font-bold underline">
                   Of course you do silly!
+                </p>
+              </Accordion>
+              <Accordion title="Patch notes">
+                <p className="">
+                  11.06.2024: We added HP and Speed to the calculation. Values
+                  are now weighted leading to a balanced game experience. Values
+                  are weighted as follows HP: 1.0, Attack: 2.0, Defense: 1.5,
+                  "Sp. Attack": 2.0, "Sp. Defense": 1.5, Speed: 1.2
                 </p>
               </Accordion>
               <p className="mt-10 text-2xl text-right ">
