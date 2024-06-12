@@ -2,18 +2,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { SpinnerCircularFixed } from 'spinners-react';
+import { SpinnerCircularFixed } from "spinners-react";
 
 const Leaderboard = () => {
   const [entries, setEntries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const APIURL = import.meta.env.VITE_DEPLOY_URL;
+  console.log(APIURL);
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:8000/pokemon/Leaderboard/`
-      );
+      const response = await axios.get(`${APIURL}/pokemon/Leaderboard/`);
       setEntries(response.data.sort((a, b) => b.score - a.score));
       console.log(response.data);
       setIsLoading(false);
@@ -28,9 +27,17 @@ const Leaderboard = () => {
   }, []);
 
   if (isLoading) {
-    return <div className=" flex justify-center mt-[30rem] bg-black items-center    ">
-      <SpinnerCircularFixed size={71} thickness={99} speed={146} color="rgba(57, 172, 110, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" />
-    </div>;
+    return (
+      <div className=" flex justify-center mt-[30rem] bg-black items-center    ">
+        <SpinnerCircularFixed
+          size={71}
+          thickness={99}
+          speed={146}
+          color="rgba(57, 172, 110, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+        />
+      </div>
+    );
   }
 
   return (
