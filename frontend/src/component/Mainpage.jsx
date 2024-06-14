@@ -258,7 +258,8 @@ const Mainpage = () => {
                 </div>
               )}
               <img
-                src="./src/assets/combat1.png"
+              
+                src="./public/combat.png"
                 className=" h-[23rem] w-auto mt-9"
               />
             </button>
@@ -273,7 +274,8 @@ const Mainpage = () => {
               onGetID={getPokeID2}
             />
             <img
-              src="./src/assets/pokeball.webp"
+            
+              src="./public/pokeball.webp"
               className=" h-[15rem] w-[12rem] mt-9 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               onClick={shufflePokemon2}
             />
