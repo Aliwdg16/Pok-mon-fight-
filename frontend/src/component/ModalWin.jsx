@@ -22,7 +22,7 @@ export default function ModalWin({
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-md max-w-md min-w-md">
             {showModal ? <AudioPlayer1 /> : null}
             <p className="text-lg">{`${winnerName} wins!`}</p>
-            <img src="./src/assets/pikachuWin.gif" alt="jumping Pikachu" />
+            <img src="./public/pikachuWin.gif" alt="jumping Pikachu" />
 
             <button
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"

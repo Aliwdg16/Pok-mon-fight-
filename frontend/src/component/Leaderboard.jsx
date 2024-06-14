@@ -9,7 +9,7 @@ const Leaderboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const APIURL = import.meta.env.VITE_DEPLOY_URL;
-  console.log(APIURL);
+  // console.log(APIURL);
   const fetchData = async () => {
     try {
       const response = await axios.get(`${APIURL}/pokemon/Leaderboard/`);
@@ -51,7 +51,8 @@ const Leaderboard = () => {
       </div>
 
       <div className=" flex justify-center min-h-[40rem]">
-        <div className=" bg-[url('./src/assets/leaderboard.png')] w-[100%]  h-auto bg-no-repeat mt-28  relative"></div>
+   
+        <div className=" bg-[url('./public/leaderboard.png')] w-[100%]  h-auto bg-no-repeat mt-28  relative"></div>
 
         <table className="min-w-[75%] bg-[#204301] bg-opacity-70  border-[0.1rem] border-[#bf1310] my-10 table-auto  absolute">
           <thead>
@@ -90,7 +91,8 @@ const Leaderboard = () => {
             ))}
           </tbody>
         </table>
-        <div className=" bg-[url('./src/assets/leaderboard2.png')] w-[100%] bg-right  h-auto bg-no-repeat mt-28  "></div>
+        public\leaderboard.png
+        <div className=" bg-[url('./public/leaderboard2.png')] w-[100%] bg-right  h-auto bg-no-repeat mt-28  "></div>
       </div>
     </>
   );
