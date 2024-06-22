@@ -52,7 +52,7 @@ const Leaderboard = () => {
 
       <div className=" flex justify-center min-h-[40rem]">
    
-        <div className=" bg-[url('./public/leaderboard.png')] w-[100%]  h-auto bg-no-repeat mt-28  relative"></div>
+        <div className=" bg-[url('./public/typeIcons/leaderboard.png')] w-[100%]  h-auto bg-no-repeat mt-28  relative"></div>
 
         <table className="min-w-[75%] bg-[#204301] bg-opacity-70  border-[0.1rem] border-[#bf1310] my-10 table-auto  absolute">
           <thead>
@@ -91,8 +91,7 @@ const Leaderboard = () => {
             ))}
           </tbody>
         </table>
-      
-        <div className=" bg-[url('./public/leaderboard2.png')] w-[100%] bg-right  h-auto bg-no-repeat mt-28  "></div>
+        <div className=" bg-[url('./public/typeIcons/leaderboard2.png')] w-[100%] bg-right  h-auto bg-no-repeat mt-28  "></div>
       </div>
     </>
   );
