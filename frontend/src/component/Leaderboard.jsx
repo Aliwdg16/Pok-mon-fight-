@@ -91,7 +91,7 @@ const Leaderboard = () => {
             ))}
           </tbody>
         </table>
-        public\leaderboard.png
+      
         <div className=" bg-[url('./public/leaderboard2.png')] w-[100%] bg-right  h-auto bg-no-repeat mt-28  "></div>
       </div>
     </>

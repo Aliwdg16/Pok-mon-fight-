@@ -259,7 +259,7 @@ const Mainpage = () => {
               )}
               <img
               
-                src="./public/combat.png"
+                src="./public/combat1.png"
                 className=" h-[23rem] w-auto mt-9"
               />
             </button>
