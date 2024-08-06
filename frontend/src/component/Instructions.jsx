@@ -77,7 +77,7 @@ const Instructions = () => {
             </div>
             <div className="flex items-center justify-end">
               <img
-                src="./public/typeIcons/petaPikachu.png"
+                src="./typeIcons/petaPikachu.png"
                 alt=""
                 className="h-auto w-[30rem] object-fit static"
               />
